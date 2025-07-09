@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'users',
     'my_habbits',
     "django_filters",
+    "drf_yasg",
 
 
 ]
