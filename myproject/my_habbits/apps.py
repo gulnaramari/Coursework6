@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class MyHabbitsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'my_habbits'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "my_habbits"

@@ -19,9 +19,11 @@ class MyHabitListAPIView(generics.ListAPIView):
 
         user = self.request.user
         if user.is_authenticated:
-            return MyHabit.objects.filter(Q(owner=user) | Q(is_public=True)).order_by('id')
+            return MyHabit.objects.filter(Q(owner=user) | Q(is_public=True)).order_by(
+                "id"
+            )
         else:
-            return MyHabit.objects.filter(is_public=True).order_by('id')
+            return MyHabit.objects.filter(is_public=True).order_by("id")
 
 
 class MyHabitRetrieveAPIView(generics.RetrieveAPIView):

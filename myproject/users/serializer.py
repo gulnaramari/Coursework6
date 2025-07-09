@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['avatar', 'email', 'tg_nickname', 'tg_id', 'city']
+        fields = ["avatar", "email", "tg_nickname", "tg_id", "city"]
 
 
 class UserBaseSerializer(serializers.ModelSerializer):
@@ -20,10 +20,11 @@ class UserBaseSerializer(serializers.ModelSerializer):
 
 class CreateUserBaseSerializer(serializers.ModelSerializer):
     """Кастомный сериализатор для создания пользователя с ограниченным доступом."""
+
     password = serializers.CharField(write_only=True, required=True)
 
     class Meta:
-        """Класс для изменения поведения полей сериализатора """
+        """Класс для изменения поведения полей сериализатора"""
 
         model = User
         fields = ["avatar", "email", "city", "password"]

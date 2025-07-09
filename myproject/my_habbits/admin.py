@@ -7,7 +7,23 @@ from .models import MyHabit
 
 @admin.register(MyHabit)
 class MyHabitAdmin(admin.ModelAdmin):
-    list_display = ('name', 'place', 'action', 'is_pleasanthabit', 'is_publichabit',)
-    list_filter = ('is_pleasanthabit', 'is_publichabit',)
-    search_fields = ('name', 'owner__email', 'owner__tg_nickname', )
-    ordering = ('date_begin', 'id',)
+    list_display = (
+        "name",
+        "place",
+        "action",
+        "is_pleasanthabit",
+        "is_publichabit",
+    )
+    list_filter = (
+        "is_pleasanthabit",
+        "is_publichabit",
+    )
+    search_fields = (
+        "name",
+        "owner__email",
+        "owner__tg_nickname",
+    )
+    ordering = (
+        "date_begin",
+        "id",
+    )

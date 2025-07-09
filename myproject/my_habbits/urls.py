@@ -16,5 +16,7 @@ urlpatterns = [
     path("habit/<int:pk>/", MyHabitRetrieveAPIView.as_view(), name="habit"),
     path("habit/new/", MyHabitCreateAPIView.as_view(), name="adding_habit"),
     path("habit/<int:pk>/update/", MyHabitUpdateAPIView.as_view(), name="update_habit"),
-    path("habit/<int:pk>/delete/", MyHabitDestroyAPIView.as_view(), name="delete_habit"),
+    path(
+        "habit/<int:pk>/delete/", MyHabitDestroyAPIView.as_view(), name="delete_habit"
+    ),
 ]
