@@ -5,7 +5,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ValidationError
 
 
-class Validator:
+class BaseValidator:
     """Класс для проверок."""
 
     def __init__(self, *fields):
@@ -25,7 +25,7 @@ class Validator:
 class AwardOrRelatedValidator(BaseValidator):
     """Исключает одновременный выбор соответствующей привычки и вознаграждения."""
 
-    def validate(self, related_habit, award, place, **kwargs):
+    def validate(self, related_habit, award, **kwargs):
         if award and related_habit:
             raise serializers.ValidationError(
                 "Приятная привычка не может иметь вознаграждения или связанной с ней привычки"

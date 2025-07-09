@@ -83,7 +83,7 @@ class HabitBaseSerializer(serializers.ModelSerializer):
             HabitTimeValidator("habit_time"),
             PleasantValidator("related_habit"),
             PublicPleasantValidator("is_pleasanthabit", "award", "related_habit"),
-            FrequencyValidator("periodicity"),
+            FrequencyValidator("period"),
             RelatedPublicValidator("related_habit", "is_publichabit"),
             RelatedOwnerValidator("related_habit", "owner"),
         ]
