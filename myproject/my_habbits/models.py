@@ -3,6 +3,11 @@ from django.db import models
 from users.models import User
 
 
+class Week(models.Model):
+    """Модель дня недели"""
+
+    day = models.CharField(max_length=3, verbose_name="day of week")
+
 class MyHabit(models.Model):
     """Модель привычки"""
 
@@ -48,6 +53,13 @@ class MyHabit(models.Model):
     )
     habit_time = models.DurationField(
         default=timedelta(seconds=120), verbose_name="Время на привычку"
+    )
+    days_of_week = models.ManyToManyField(
+        Week,
+        verbose_name="день недели",
+        help_text="Выбери день недели для хорошей привычки",
+        null=True,
+        blank=True,
     )
 
     class Meta:

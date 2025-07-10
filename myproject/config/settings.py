@@ -50,12 +50,11 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'my_habbits',
-    "django_filters",
     "drf_yasg",
     "drf_spectacular",
     "corsheaders",
-
-
+    "django_filters",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -172,6 +171,11 @@ CELERY_TIMEZONE = 'Europe/Moscow'
 CELERY_TASK_TRACK_STARTED = True
 
 CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+CELERY_BEAT_SCHEDULE = {
+    "send_notification": {"task": "users.tasks.send_message", "schedule": timedelta(minutes=5)}
+}
 
 TG_TOKEN = os.getenv('TG_TOKEN')
 TG_URL = os.getenv('TG_URL')
